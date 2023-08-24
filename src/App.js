@@ -15,8 +15,8 @@ function App() {
 
   return (
     <>
-      <button onClick={handleClick1}>get</button>
-      <button onClick={handleClick2}>put</button>
+      <button onClick={handleClick1} name='get'>get</button>
+      <button onClick={handleClick2} name='put'>put</button>
     </>
   );
 }

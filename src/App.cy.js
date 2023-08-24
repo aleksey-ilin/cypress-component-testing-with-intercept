@@ -1,6 +1,6 @@
 import App from './App';
 
-it('button should request by click', () => {
+it('button should get request by click', () => {
   cy.intercept(
     { method: 'GET', path: '**/api/my-api/view/123' },
     async (req) => {
@@ -11,6 +11,14 @@ it('button should request by click', () => {
     },
   ).as('get');
 
+  cy.mount(<App />)
+
+  cy.get('button[name=get]').click();
+
+  cy.wait('@get');
+});
+
+it('button should put request by click', () => {
   cy.intercept(
     { method: 'PUT', path: '**/api/my-api/view/123' },
     async (req) => {
@@ -21,5 +29,9 @@ it('button should request by click', () => {
     },
   ).as('put');
 
-  cy.mount(<App />)
+  cy.mount(<App />);
+
+  cy.get('button[name=put]').click();
+
+  cy.wait('@put');
 });
