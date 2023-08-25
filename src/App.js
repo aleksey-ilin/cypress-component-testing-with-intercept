@@ -1,22 +1,34 @@
-function App() {
-  const handleClick1 = () => {
-    const xhr = new XMLHttpRequest();
+// import axios from 'axios';
 
-    xhr.open('GET', 'http://localhost:3000/__cypress/iframes//Users/user/projects/ui/src/shared/components/side-panel/api/my-api/view/123');
+function App() {
+  const handleClickGetButton = () => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'api/my-api/view/get');
     xhr.send();
+
+    // axios({
+    //   method: 'GET',
+    //   baseURL: 'api/my-api/view',
+    //   url: '/123',
+    // })
   };
 
-  const handleClick2 = () => {
+  const handleClickPutButton = () => {
     const xhr = new XMLHttpRequest();
-
-    xhr.open('PUT', 'http://localhost:3000/__cypress/iframes//Users/user/projects/ui/src/shared/components/side-panel/api/my-api/view/123');
+    xhr.open('PUT', 'api/my-api/view/put');
     xhr.send();
+
+    // axios({
+    //   method: 'PUT',
+    //   baseURL: 'api/my-api/view',
+    //   url: '/123',
+    // })
   };
 
   return (
     <>
-      <button onClick={handleClick1} name='get'>get</button>
-      <button onClick={handleClick2} name='put'>put</button>
+      <button onClick={handleClickGetButton} name='get'>get</button>
+      <button onClick={handleClickPutButton} name='put'>put</button>
     </>
   );
 }
